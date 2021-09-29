@@ -28,7 +28,7 @@ player = [[sg.Text("MUSIC PLAYER")], [sg.Button("PLAY")],
           [sg.Button("PAUSE")],[sg.Button("UNPAUSE")],
           [sg.Button("STOP")],
           [sg.Text("VOLUME")],
-          [sg.Slider((1,100), key='VOL',orientation='h', enable_events=True, disable_number_display=True )]]
+          [sg.Slider((1,100), default_value=30, key='VOL',orientation='h', enable_events=True, disable_number_display=True )]]
 
 
 # Final Layout
@@ -45,13 +45,6 @@ window = sg.Window("Soumi Music Player", layout) # Sending the layout to the win
 
 # Starting the mixer 
 mixer.init() 
-
-# Loading the song 
-mixer.music.load("muze.mp3") 
-
-# Setting the volume 
-mixer.music.set_volume(0.7) 
-
 
 # Create an event loop
 while True:
