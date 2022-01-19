@@ -65,7 +65,9 @@ while True:
             # Get list of files in folder
 
             file_list = os.listdir(folder)
-            
+        except:
+            file_list = list()
+
         fnames = [f for f in file_list
                   if os.path.isfile(os.path.join(folder, f))
                   and f.lower().endswith('.mp3')]
