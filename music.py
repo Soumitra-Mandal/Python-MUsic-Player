@@ -58,16 +58,14 @@ while True:
 
     if event == sg.WIN_CLOSED:
         break
-    elif event == 'FOLDER':
+    if event == 'FOLDER':
         folder = values['FOLDER']
         try:
 
             # Get list of files in folder
 
             file_list = os.listdir(folder)
-        except:
-            file_list = []
-
+            
         fnames = [f for f in file_list
                   if os.path.isfile(os.path.join(folder, f))
                   and f.lower().endswith('.mp3')]
