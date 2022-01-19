@@ -66,7 +66,7 @@ while True:
 
             file_list = os.listdir(folder)
         except:
-            file_list = null
+            file_list = None
 
         fnames = [f for f in file_list
                   if os.path.isfile(os.path.join(folder, f))
