@@ -13,7 +13,7 @@ import PySimpleGUI as sg
 
 # File Uploader section
 
-file_list_column = [[sg.Text('Songs Folder'), sg.In(size=(25, 1),
+FILE_LIST_COLUMN = [[sg.Text('Songs Folder'), sg.In(size=(25, 1),
                     enable_events=True, key='FOLDER'),
                     sg.FolderBrowse()], [sg.Listbox(values=[],
                     enable_events=True, size=(40, 20), key='FILE LIST'
@@ -40,7 +40,7 @@ player = [
 
 # Final Layout
 
-layout = [[sg.Column(file_list_column), sg.VSeperator(),
+layout = [[sg.Column(FILE_LIST_COLUMN), sg.VSeperator(),
           sg.Column(player)]]
 
 window = sg.Window('Soumi Music Player', layout)  # Sending the layout to the window
@@ -64,11 +64,11 @@ while True:
 
             # Get list of files in folder
 
-            file_list = os.listdir(folder)
+            FILE_LIST = os.listdir(folder)
         except:
-            file_list = None
+            FILE_LIST = None
 
-        fnames = [f for f in file_list
+        fnames = [f for f in FILE_LIST
                   if os.path.isfile(os.path.join(folder, f))
                   and f.lower().endswith('.mp3')]
         window['FILE LIST'].update(fnames)
